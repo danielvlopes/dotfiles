@@ -1,0 +1,7 @@
+Host cifras
+	HostName cifrascash.com
+	User	cifrascash
+
+Host area
+	HostName areacriacoes.com.br
+	User	creation

@@ -1,0 +1,80 @@
+# Command Enhancements
+
+# Utility
+alias reload='source ~/bin/dotfiles/bash/aliases'
+alias ea='mate -w ~/bin/dotfiles/bash/aliases && reload'	# Edit aliases
+alias ea='mate -w ~/bin/dotfiles/bash/config && reload' 	# Edit config
+alias ee='mate -w ~/bin/dotfiles/bash/config && reload'		# Edit env
+
+# Quicker cd
+alias cg='cd /Library/Ruby/Gems/1.8/gems/'
+
+function zipr() {
+  zip -r $1.zip $1
+}
+
+# Finder
+alias o='open . &'
+alias ff='open -a Firefox'
+alias sf='open -a Safari'
+
+# Processes
+alias tu='top -o cpu' # cpu
+alias tm='top -o vsize' # memory
+alias e='exit'
+alias k9="killall -9"
+function killnamed () { 
+    ps ax | grep $1 | cut -d ' ' -f 2 | xargs kill 
+}
+
+# Git
+alias ungit="find . -name '.git' -exec rm -rf {} \;"
+alias gb='git branch'
+alias gba='git branch -a'
+alias gc='git commit -v'
+alias gca='git commit -v -a'
+# Commit pending changes and quote all args as message
+function gg() { 
+    git commit -v -a -m "$*"
+}
+alias gco='git checkout'
+alias gd='git diff'
+alias gdm='git diff master'
+alias gnp="git-notpushed"
+alias gpl='git pull'
+alias gps='git push'
+alias gs='git status'
+alias eg='mate .git/config'
+
+# TextMate
+alias mt="mate"
+alias mtd="mate ."
+
+# Ruby
+alias r="rake"
+
+# Rails
+alias rp='touch tmp/restart.txt'
+alias sc='./script/console'
+alias sg='./script/generate'
+alias sp='./script/plugin'
+alias ss='./script/server'
+alias tl='tail -f log/*.log'
+
+# TDD / BDD
+alias aa='autotest'
+alias aaf='autotest -f' # Don't run all at start
+alias aas="./script/autospec"
+
+function markdown() { 
+/Applications/TextMate.app/Contents/SharedSupport/Support/bin/Markdown.pl $1 > $1.html 
+}
+
+function wk {
+  cd ~/Works/$1
+}
+
+function parse_git_branch {
+  ref=$(git-symbolic-ref HEAD 2> /dev/null) || return
+  echo "("${ref#refs/heads/}")" 
+}
