@@ -3,7 +3,7 @@
 # Utility
 alias reload='source ~/bin/dotfiles/bash/aliases'
 alias ea='mate -w ~/bin/dotfiles/bash/aliases && reload'	# Edit aliases
-alias ea='mate -w ~/bin/dotfiles/bash/config && reload' 	# Edit config
+alias ec='mate -w ~/bin/dotfiles/bash/config && reload' 	# Edit config
 alias ee='mate -w ~/bin/dotfiles/bash/config && reload'		# Edit env
 
 # Quicker cd
@@ -38,6 +38,7 @@ function gg() {
     git commit -v -a -m "$*"
 }
 alias gco='git checkout'
+alias ga='git add .'
 alias gd='git diff'
 alias gdm='git diff master'
 alias gnp="git-notpushed"
@@ -65,6 +66,12 @@ alias tl='tail -f log/*.log'
 alias aa='autotest'
 alias aaf='autotest -f' # Don't run all at start
 alias aas="./script/autospec"
+
+# Apache2
+alias apt='tail -f /private/var/log/apache2/error_log /private/var/log/apache2/access_log'
+alias apg='sudo apachectl graceful'
+alias apr='sudo apachectl restart'
+alias apct='apachectl configtest'
 
 function markdown() { 
 /Applications/TextMate.app/Contents/SharedSupport/Support/bin/Markdown.pl $1 > $1.html 

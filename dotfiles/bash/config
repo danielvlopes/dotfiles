@@ -43,4 +43,4 @@ BRIGHT_VIOLET="\[$ESC[${BRIGHT};${FG_VIOLET}m\]"
 BRIGHT_CYAN="\[$ESC[${BRIGHT};${FG_CYAN}m\]"
 BRIGHT_WHITE="\[$ESC[${BRIGHT};${FG_WHITE}m\]"
 
-PS1="$GREEN\u:$BRIGHT_YELLOW\w $YELLOW\$(parse_git_branch)${NORMAL}\$ ${RESET}"
+PS1="$GREEN\n\u:$BRIGHT_YELLOW\w $YELLOW\$(parse_git_branch)${NORMAL}\$ ${RESET}"
