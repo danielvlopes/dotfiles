@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby -w
+
+# Create a default gitignore file in the passed directory
+#
+# AUTHOR: Daniel Lopes
+#         September 10, 2009
+#
+# USAGE:
+#   git-ignore . "adition_file1 aditional_file2"
+require 'pathname'
+
+file_name     = Pathname.new(ARGV[0])+".gitignore"
+ignore_files  = ARGV[1].split(" ").join("\n")
+
+content = <<FILE
+config/database.yml
+db/schema.rb
+db/schema.sql
+coverage/*
+doc/*
+log/*.log
+log/*.out
+log/*.pid
+tmp/**/*
+tmp/.*
+tmp/profile*
+uploads/*
+vendor/**/**/doc/*
+.DS_Store
+.project
+ssl/*
+Icon?
+#{ignore_files}
+FILE
+
+File.open(file_name,"w+") do |f|
+  f.write(content)
+end
