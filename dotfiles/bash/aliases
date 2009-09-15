@@ -6,6 +6,9 @@ alias ea='mate -w ~/bin/dotfiles/bash/aliases && reload'	# Edit aliases
 alias ec='mate -w ~/bin/dotfiles/bash/config && reload' 	# Edit config
 alias ee='mate -w ~/bin/dotfiles/bash/config && reload'		# Edit env
 
+# List
+alias ls='ls -ah'
+
 # Quicker cd
 alias cg='cd /Library/Ruby/Gems/1.8/gems/'
 
@@ -60,7 +63,11 @@ alias sc='./script/console'
 alias sg='./script/generate'
 alias sp='./script/plugin'
 alias ss='./script/server'
+alias tld='tail -f log/development.log'
+alias tlt='tail -f log/test.log'
+alias tlp='tail -f log/production.log'
 alias tl='tail -f log/*.log'
+alias rr='rake routes > ~/Desktop/routes.rb'
 
 # TDD / BDD
 alias aa='autotest'
@@ -72,6 +79,7 @@ alias apt='tail -f /private/var/log/apache2/error_log /private/var/log/apache2/a
 alias apg='sudo apachectl graceful'
 alias apr='sudo apachectl restart'
 alias apct='apachectl configtest'
+alias aptl="tail -f /var/log/apache2/error_log /var/log/apache2/access_log"
 
 function markdown() { 
 /Applications/TextMate.app/Contents/SharedSupport/Support/bin/Markdown.pl $1 > $1.html 
