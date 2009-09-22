@@ -10,7 +10,7 @@
 require 'pathname'
 
 file_name     = Pathname.new(ARGV[0])+".gitignore"
-ignore_files  = ARGV[1].split(" ").join("\n")
+ignore_files  = ARGV[1].split(" ").join("\n") if ARGV[1]
 
 content = <<FILE
 config/database.yml
