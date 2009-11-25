@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby -w
+require "digest"
+
+puts Digest::SHA1.hexdigest("ruby#{rand}")[0,10]

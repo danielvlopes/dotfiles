@@ -1,0 +1,79 @@
+#!/usr/bin/env ruby
+# Resize all image files in the directory, and generate thumbnails (optional)
+#
+# AUTHOR: Daniel Lopes
+#         October 23, 2009
+#
+# USAGE:
+#   resize-images . thumb_ #=> 1.jpg, thumb_1.jpg, etc
+
+require 'optparse'
+require 'find'
+require 'pathname'
+require 'rubygems'
+require 'RMagick'
+
+include Magick
+
+# This hash will hold all of the options
+options = {}
+
+optparse = OptionParser.new do|opts|
+  opts.banner = "Usage: resize-images [options] . \n"
+  opts.banner += "Example: resize-images . --thumb --size \"630x473\" --thumb_size \"105x80\""
+
+  # size
+  options[:size] = "640x480"
+  opts.on( '-s', '--size 700x400', 'The newsize of images' ) do |size|
+    options[:size] = size
+  end
+
+  # thumbnail size
+  options[:thumb_size] = "70x40"
+  opts.on( '-h', '--thumb_size 70x40', 'The size of thumbnails' ) do |size|
+    options[:thumb_size] = size
+  end
+
+  # thumbnails
+  options[:thumb] = false
+  opts.on( '-t', '--thumb', 'Generate thumbnails for images' ) do
+    options[:thumb] = true
+  end
+
+  # thumbnail name prefix
+  options[:thumb_prefix] = "thumb_"
+  opts.on( '-p', '--prefix THUMB_PREFIX', 'Name thumbnails with prefix' ) do |prefix|
+    options[:thumb_prefix] = prefix
+  end
+
+  # help screen
+  opts.on( '-h', '--help', 'Display this screen' ) do
+    puts opts
+    exit
+  end
+end
+optparse.parse!
+
+source_dir = ARGV[0]
+
+puts "Resizing images in #{source_dir}"
+files = Dir.entries(source_dir).find_all {|f| File.extname(f) =~ /\.(jpg|jpeg|gif|png|tif)$/ }
+
+files.each do |f|
+  next if f == "." or f == ".." or f =~ /^\./
+  
+  width, height = options[:size].split("x") if options[:size] =~ %r{^\d+x\d+$}
+  thumb_width,thumb_height = options[:thumb_size].split("x") if options[:size] =~ %r{^\d+x\d+$}
+
+  file_path = Pathname.new(source_dir)+f
+  thumb_path = Pathname.new(source_dir)+"#{options[:thumb_prefix]}#{f}"
+  
+  puts "Resizing: #{File.basename(f)}"
+  ImageList.new(file_path).resize(width.to_i, height.to_i).write(File.expand_path(file_path))
+  
+  if options[:thumb]
+    puts "Thumbnail: #{File.basename(f)}"
+    ImageList.new(file_path).resize(thumb_width.to_i, thumb_height.to_i).write(File.expand_path(thumb_path))
+  end
+  puts "-----------"
+end

@@ -9,8 +9,11 @@
 #   git-ignore . "adition_file1 aditional_file2"
 require 'pathname'
 
-file_name     = Pathname.new(ARGV[0])+".gitignore"
-ignore_files  = ARGV[1].split(" ").join("\n") if ARGV[1]
+unless ARGV[0]
+  puts "USAGE: git-ignore . \"adition_file1 aditional_file2\""
+else
+  file_name     = Pathname.new(ARGV[0])+".gitignore"
+  ignore_files  = ARGV[1].split(" ").join("\n") if ARGV[1]
 
 content = <<FILE
 config/database.yml
@@ -33,6 +36,7 @@ Icon?
 #{ignore_files}
 FILE
 
-File.open(file_name,"w+") do |f|
-  f.write(content)
+  File.open(file_name,"w+") do |f|
+    f.write(content)
+  end
 end

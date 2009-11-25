@@ -1,6 +1,10 @@
-Host cifras
+Host cifras_production
 	HostName 	cifrascash.com
-	User			cifrascash
+	User			rails
+
+Host cifras_staging
+	HostName 	staging.cifras.managedmachine.com
+	User			rails
 
 Host area
 	HostName 	areacriacoes.com.br

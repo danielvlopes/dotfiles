@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby -w
+
+# Rename all files in the directory. The new names will be generated from a basename.
+#
+# AUTHOR: Daniel Lopes
+#         October 20, 2009
+#
+# USAGE:
+#   rename-files . base_name.jpg #=> base_name1.jpg, base_name2.jpg, etc
+require "pathname"
+
+unless ARGV[0]
+  puts "USAGE: rename-files directory new_name.jpg"
+  puts "RESULT: new_name1.jpg, new_name2.jpg, etc"
+else
+  source_path = ARGV[0]
+  files = Dir.entries(source_path)
+  name_pattern = (ARGV[1]) ? Pathname.new(ARGV[1]) : nil
+
+  count = 1
+  files.each do |f|
+    next if f == "." or f == ".." or f =~ /^\./
+    file = Pathname.new(f)    
+    extension = file.extname
+    extension = name_pattern.extname  if !name_pattern.nil? && (file.extname != name_pattern.extname)
+
+    new_name = "#{File.basename(name_pattern, '.*') if !name_pattern.nil?}#{count.to_s}#{extension}".downcase
+    File.rename(source_path+"/"+f, source_path+"/"+new_name)
+    puts "rename #{f} to #{new_name}"
+    count+=1
+  end
+
+end
