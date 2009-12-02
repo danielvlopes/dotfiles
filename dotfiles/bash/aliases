@@ -74,6 +74,11 @@ alias aa='autotest'
 alias aaf='autotest -f' # Don't run all at start
 alias aas="./script/autospec"
 
+# RAILS
+function rails_template() {
+  rails -m http://github.com/danielvlopes/base_app/raw/b1567c12e9f501b9a406e03d495fbb4b34715355/template.rb $1
+}
+
 # Apache2
 alias apt='tail -f /private/var/log/apache2/error_log /private/var/log/apache2/access_log'
 alias apg='sudo apachectl graceful'
