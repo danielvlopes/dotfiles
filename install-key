@@ -69,7 +69,8 @@ module KeyInstaller
   end
   
   def args_to_options(args)
-    @options = {} unless @options
+    @options ||= {}
+    
     c = 0
     for arg in args
       value = args[c + 1] || ""

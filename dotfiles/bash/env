@@ -1,3 +1,4 @@
-# export EDITOR="mate -w"
-export PATH=/opt/local/bin:/opt/local/sbin:${PATH}:/usr/local/mysql/bin:~/bin:/Applications/Adobe/AirSDK/bin
+export EDITOR="mate -w"
+export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:/Users/daniellopes/bin:${PATH}
+
 

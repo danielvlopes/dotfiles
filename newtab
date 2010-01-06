@@ -1,4 +1,4 @@
-#!/bin/sh -
+#!/bin/sh
 
 # Make a new OS X Terminal tab with the current working directory.
 

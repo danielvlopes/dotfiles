@@ -4,7 +4,7 @@
 alias reload='source ~/bin/dotfiles/bash/aliases'
 alias ea='mate -w ~/bin/dotfiles/bash/aliases && reload'	# Edit aliases
 alias ec='mate -w ~/bin/dotfiles/bash/config && reload' 	# Edit config
-alias ee='mate -w ~/bin/dotfiles/bash/config && reload'		# Edit env
+alias ee='mate -w ~/bin/dotfiles/bash/env && reload'			# Edit env
 
 # List
 alias ls='ls -ah'
@@ -85,6 +85,8 @@ alias apg='sudo apachectl graceful'
 alias apr='sudo apachectl restart'
 alias apct='apachectl configtest'
 alias aptl="tail -f /var/log/apache2/error_log /var/log/apache2/access_log"
+alias apmate="mate /etc/apache2"
+alias apcd="cd /etc/apache2"
 
 function markdown() { 
 /Applications/TextMate.app/Contents/SharedSupport/Support/bin/Markdown.pl $1 > $1.html 
@@ -95,6 +97,6 @@ function wk {
 }
 
 function parse_git_branch {
-  ref=$(git-symbolic-ref HEAD 2> /dev/null) || return
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
   echo "("${ref#refs/heads/}")" 
 }

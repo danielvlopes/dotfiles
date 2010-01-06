@@ -1,5 +1,7 @@
 #!/bin/sh
-
-mysqldump -u root --add-drop-table --no-create-db --no-data $1 > schema.sql
-
-
+if [ $# -eq 0 ] 
+then
+  echo "usage: dumpschema 'database'"
+else
+	mysqldump -u root --add-drop-table --no-create-db --no-data $1 > schema.sql
+fi
