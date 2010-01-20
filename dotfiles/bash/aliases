@@ -11,6 +11,11 @@ alias ls='ls -ah'
 
 # Quicker cd
 alias cg='cd /Library/Ruby/Gems/1.8/gems/'
+alias ct='cd ~/Desktop/tests/'
+
+function cw {
+  cd ~/Works/$1
+}
 
 function zipr() {
   zip -r $1.zip $1
@@ -48,6 +53,7 @@ alias gnp="git-notpushed"
 alias gpl='git pull'
 alias gps='git push'
 alias gs='git status'
+alias gru='git reset --hard HEAD'
 alias eg='mate .git/config'
 
 # TextMate
@@ -56,6 +62,7 @@ alias mtd="mate ."
 
 # Ruby
 alias r="rake"
+alias gem="sudo gem"
 
 # Rails
 alias rp='touch tmp/restart.txt'
@@ -90,10 +97,6 @@ alias apcd="cd /etc/apache2"
 
 function markdown() { 
 /Applications/TextMate.app/Contents/SharedSupport/Support/bin/Markdown.pl $1 > $1.html 
-}
-
-function wk {
-  cd ~/Works/$1
 }
 
 function parse_git_branch {
