@@ -6,8 +6,12 @@ alias ea='mate -w ~/bin/dotfiles/bash/aliases && reload'	# Edit aliases
 alias ec='mate -w ~/bin/dotfiles/bash/config && reload' 	# Edit config
 alias ee='mate -w ~/bin/dotfiles/bash/env && reload'			# Edit env
 
+function ps1 {
+  PS1="\[$ESC[${DULL};${FG_GREEN}m\]\n\u:\[$ESC[${DULL};${FG_YELLOW}m\]$1 \$ \[$ESC[${DULL};${FG_WHITE};${BG_NULL}m\]"
+}
+
 # List
-alias ls='ls -ah'
+alias ls='ls -lah'
 
 # Quicker cd
 alias cg='cd /Library/Ruby/Gems/1.8/gems/'
