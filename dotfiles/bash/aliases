@@ -11,7 +11,7 @@ function ps1 {
 }
 
 # List
-alias ls='ls -lah'
+alias ls='ls -lahG'
 
 # Quicker cd
 alias cg='cd /Library/Ruby/Gems/1.8/gems/'
@@ -66,19 +66,25 @@ alias mtd="mate ."
 
 # Ruby
 alias r="rake"
-alias gem="sudo gem"
 
-# Rails
+# Rails any version
 alias rp='touch tmp/restart.txt'
-alias sc='./script/console'
-alias sg='./script/generate'
-alias sp='./script/plugin'
-alias ss='./script/server'
 alias tld='tail -f log/development.log'
 alias tlt='tail -f log/test.log'
 alias tlp='tail -f log/production.log'
 alias tl='tail -f log/*.log'
 alias rr='rake routes > ~/Desktop/routes.rb'
+
+# Rails 2.5
+alias sc='./script/console'
+alias sg='./script/generate'
+alias sp='./script/plugin'
+alias ss='./script/server'
+
+# Rails 3.0
+alias rs='rails server'
+alias rg='rails generate'
+alias rp='rails plugin'
 
 # TDD / BDD
 alias aa='autotest'
