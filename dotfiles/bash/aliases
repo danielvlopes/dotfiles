@@ -35,9 +35,6 @@ alias tu='top -o cpu' # cpu
 alias tm='top -o vsize' # memory
 alias e='exit'
 alias k9="killall -9"
-function killnamed () { 
-    ps ax | grep $1 | cut -d ' ' -f 2 | xargs kill 
-}
 
 # Git
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
@@ -45,10 +42,6 @@ alias gb='git branch'
 alias gba='git branch -a'
 alias gc='git commit -v'
 alias gca='git commit -v -a'
-# Commit pending changes and quote all args as message
-function gg() { 
-    git commit -v -a -m "$*"
-}
 alias gco='git checkout'
 alias ga='git add .'
 alias gd='git diff'
@@ -59,6 +52,11 @@ alias gps='git push'
 alias gs='git status'
 alias gru='git reset --hard HEAD'
 alias eg='mate .git/config'
+
+# Commit pending changes and quote all args as message
+function gg() { 
+    git commit -v -a -m "$*"
+}
 
 # TextMate
 alias mt="mate"

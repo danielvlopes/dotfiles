@@ -1,4 +1,4 @@
 export EDITOR="mate -w"
-export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:/Users/daniellopes/bin:${PATH}
+export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:~/bin:${PATH}
 
 
