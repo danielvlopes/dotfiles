@@ -7,14 +7,14 @@ h3. Usage
 My organization is a litle bit diferent because how I don't use the default .bashrc and .bashprofile you should require correct files.
 
 In .bashrc place this:
-<code>
+<pre>
   . ~/bin/dotfiles/bashrc
-</code>
+</pre>
 
 In .bashprofile
-<code>
+<pre>
   if [ -f ~/.bashrc ];
   then
       source ~/.bashrc
   fi    
-</code>
+</pre>
