@@ -38,6 +38,7 @@ alias k9="killall -9"
 
 # Git
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
+alias gl='git log'
 alias gb='git branch'
 alias gba='git branch -a'
 alias gc='git commit -v'
@@ -53,8 +54,13 @@ alias gs='git status'
 alias gru='git reset --hard HEAD'
 alias eg='mate .git/config'
 
+function parse_git_branch {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+  echo "("${ref#refs/heads/}")"
+}
+
 # Commit pending changes and quote all args as message
-function gg() { 
+function gg() {
     git commit -v -a -m "$*"
 }
 
@@ -71,7 +77,10 @@ alias tld='tail -f log/development.log'
 alias tlt='tail -f log/test.log'
 alias tlp='tail -f log/production.log'
 alias tl='tail -f log/*.log'
-alias rr='rake routes > ~/Desktop/routes.rb'
+
+function rr() {
+  rake routes $1 > tmp/routes.rb && mate tmp/routes.rb
+}
 
 # Rails 2.5
 alias sc='./script/console'
@@ -103,11 +112,8 @@ alias aptl="tail -f /var/log/apache2/error_log /var/log/apache2/access_log"
 alias apmate="mate /etc/apache2"
 alias apcd="cd /etc/apache2"
 
-function markdown() { 
-/Applications/TextMate.app/Contents/SharedSupport/Support/bin/Markdown.pl $1 > $1.html 
-}
+# Text Processing
 
-function parse_git_branch {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  echo "("${ref#refs/heads/}")" 
+function markdown() {
+  /Applications/TextMate.app/Contents/SharedSupport/Support/bin/Markdown.pl $1 > $1.html
 }
