@@ -17,9 +17,17 @@ alias ls='ls -lahG'
 alias cg='cd /Library/Ruby/Gems/1.8/gems/'
 alias ct='cd ~/Desktop/tests/'
 
-function cw {
-  cd ~/Works/$1
-}
+# Projects
+alias cifras='cd ~/Works/cifras/cifras'
+alias egenial='cd ~/Works/pessoais/egenial'
+alias area='cd ~/Works/area'
+alias connecta='cd ~/Works/connecta'
+alias turmai='cd ~/Works/pessoais/egenial/curso_rails/turmas/publico/i'
+alias railsmg='cd ~/Works/pessoais/railsmg/railsmg'
+alias ruby_projects='cd ~/Works/area/projetos/ruby'
+alias ameixa='cd ~/Works/ameixa'
+alias works='cd ~/Works'
+alias tests='cd ~/Desktop/tests'
 
 function zipr() {
   zip -r $1.zip $1
@@ -28,7 +36,10 @@ function zipr() {
 # Finder
 alias o='open . &'
 alias ff='open -a Firefox'
-alias sf='open -a Safari'
+
+function sf(){
+  open -a Safari http://$1
+}
 
 # Processes
 alias tu='top -o cpu' # cpu
@@ -39,6 +50,7 @@ alias k9="killall -9"
 # Git
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
 alias gl='git log'
+alias glp='git log --pretty=oneline'
 alias gb='git branch'
 alias gba='git branch -a'
 alias gc='git commit -v'
@@ -82,6 +94,12 @@ function rr() {
   rake routes $1 > tmp/routes.rb && mate tmp/routes.rb
 }
 
+# RVM
+alias rvmr3='rvm gemset use rails3beta'
+alias rvmree='rvm use ree'
+alias rvmsys='rvm use system'
+alias rvmdef='rvm use default'
+
 # Rails 2.5
 alias sc='./script/console'
 alias sg='./script/generate'
@@ -89,9 +107,10 @@ alias sp='./script/plugin'
 alias ss='./script/server'
 
 # Rails 3.0
-alias rs='rails server'
-alias rg='rails generate'
-alias rp='rails plugin'
+alias r='rails'
+
+# Memcache
+alias mc='memcached -vv'
 
 # TDD / BDD
 alias aa='autotest'
@@ -117,3 +136,7 @@ alias apcd="cd /etc/apache2"
 function markdown() {
   /Applications/TextMate.app/Contents/SharedSupport/Support/bin/Markdown.pl $1 > $1.html
 }
+
+# Misc
+
+alias rmasl="sudo rm -rf /private/var/log/asl/*"
