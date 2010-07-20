@@ -14,31 +14,27 @@ function ps1 {
 alias ls='ls -lahG'
 
 # Quicker cd
-alias cg='cd /Library/Ruby/Gems/1.8/gems/'
+alias c='cd'
+alias cgsys='cd /Library/Ruby/Gems/1.8/gems/'
 alias ct='cd ~/Desktop/tests/'
 
 # Projects
-alias cifras='cd ~/Works/cifras/cifras'
-alias egenial='cd ~/Works/pessoais/egenial'
-alias area='cd ~/Works/area'
-alias connecta='cd ~/Works/connecta'
-alias turmai='cd ~/Works/pessoais/egenial/curso_rails/turmas/publico/i'
-alias railsmg='cd ~/Works/pessoais/railsmg/railsmg'
-alias ruby_projects='cd ~/Works/area/projetos/ruby'
-alias ameixa='cd ~/Works/ameixa'
-alias works='cd ~/Works'
-alias tests='cd ~/Desktop/tests'
+alias wk='work'
+alias cifras='work cifras/cifras'
+alias atos='work atos/mac/Atos'
+alias labs='cd ~/Desktop/Labs'
+alias producer='work egenial/cursos/rails_basico/rails3/producer'
 
-function zipr() {
-  zip -r $1.zip $1
+function work() {
+  if [ -d ~/Works/$* ]
+    then cd ~/Works/$*
+  else
+    cd ~/Works/archived/$*
+  fi
 }
 
-# Finder
-alias o='open . &'
-alias ff='open -a Firefox'
-
-function sf(){
-  open -a Safari http://$1
+function egenial(){
+  work egenial/cursos/$*
 }
 
 # Processes
@@ -48,7 +44,8 @@ alias e='exit'
 alias k9="killall -9"
 
 # Git
-alias ungit="find . -name '.git' -exec rm -rf {} \;"
+alias ungit="rm -rf .git"
+alias gcl='git clone'
 alias gl='git log'
 alias glp='git log --pretty=oneline'
 alias gb='git branch'
@@ -82,6 +79,7 @@ alias mtd="mate ."
 
 # Ruby
 alias r="rake"
+alias uninstallgems='gem list | cut -d" " -f1 | xargs gem uninstall -aIx'
 
 # Rails any version
 alias rp='touch tmp/restart.txt'
@@ -99,6 +97,10 @@ alias rvmr3='rvm gemset use rails3beta'
 alias rvmree='rvm use ree'
 alias rvmsys='rvm use system'
 alias rvmdef='rvm use default'
+
+rvmd() {
+  rvm use $1 --default
+}
 
 # Rails 2.5
 alias sc='./script/console'
@@ -118,8 +120,8 @@ alias aaf='autotest -f' # Don't run all at start
 alias aas="./script/autospec"
 
 # RAILS
-function rails_template() {
-  rails -m http://github.com/danielvlopes/base_app/raw/b1567c12e9f501b9a406e03d495fbb4b34715355/template.rb $1
+function rails_app() {
+  rails new $1 -d mysql -TJm http://github.com/danielvlopes/base_app/raw/master/template.rb
 }
 
 # Apache2
@@ -131,12 +133,42 @@ alias aptl="tail -f /var/log/apache2/error_log /var/log/apache2/access_log"
 alias apmate="mate /etc/apache2"
 alias apcd="cd /etc/apache2"
 
-# Text Processing
+alias pams="sudo passenger-memory-stats"
+alias pas="sudo passenger-status"
 
+# Text Processing
 function markdown() {
   /Applications/TextMate.app/Contents/SharedSupport/Support/bin/Markdown.pl $1 > $1.html
 }
 
 # Misc
-
+alias tlsys="tail -f /var/log/system.log"
 alias rmasl="sudo rm -rf /private/var/log/asl/*"
+alias o='open . &'
+alias ff='open -a Firefox'
+
+function display_dotfiles(){
+  defaults write com.apple.finder AppleShowAllFiles TRUE
+  killall Finder
+}
+
+function hide_dotfiles(){
+  defaults write com.apple.finder AppleShowAllFiles FALSE
+  killall Finder
+}
+
+function zipr() {
+  zip -r $1.zip $1
+}
+
+function sf(){
+  open -a Safari http://$1
+}
+
+function tarc(){
+  tar -czvf $1 $2
+}
+
+function tarx(){
+  tar -xzvf $1 $2
+}

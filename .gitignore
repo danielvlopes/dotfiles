@@ -1,1 +1,3 @@
-dotfiles/ssh/config
+ssh/**
+bash/gitconfig
+bash/gemrc
