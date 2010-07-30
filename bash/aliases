@@ -1,10 +1,10 @@
 # Command Enhancements
 
 # Utility
-alias reload='source ~/bin/dotfiles/bash/aliases'
-alias ea='mate -w ~/bin/dotfiles/bash/aliases && reload'	# Edit aliases
-alias ec='mate -w ~/bin/dotfiles/bash/config && reload' 	# Edit config
-alias ee='mate -w ~/bin/dotfiles/bash/env && reload'			# Edit env
+alias reload='source ~/etc/bash/aliases'
+alias ea='mate -w ~/etc/bash/aliases && reload'	# Edit aliases
+alias ec='mate -w ~/etc/bash/config && reload' 	# Edit config
+alias ee='mate -w ~/etc/bash/env && reload'			# Edit env
 
 function ps1 {
   PS1="\[$ESC[${DULL};${FG_GREEN}m\]\n\u:\[$ESC[${DULL};${FG_YELLOW}m\]$1 \$ \[$ESC[${DULL};${FG_WHITE};${BG_NULL}m\]"
@@ -62,11 +62,6 @@ alias gps='git push'
 alias gs='git status'
 alias gru='git reset --hard HEAD'
 alias eg='mate .git/config'
-
-function parse_git_branch {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  echo "("${ref#refs/heads/}")"
-}
 
 # Commit pending changes and quote all args as message
 function gg() {

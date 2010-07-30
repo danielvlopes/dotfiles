@@ -1,0 +1,20 @@
+h1. My DotFiles
+
+This project holds all my custom binnary files and also non-default OSX like a2ensite, ssh-copy-id and etc. I also store all my configurations for my bash (including aliases, PS1, colors, etc), ssh and ruby rvm.
+
+h3. Usage
+
+My organization is a litle bit diferent because how I don't use the default .bashrc and .bashprofile you should require correct files.
+
+In .bashrc place this:
+<pre>
+  . ~/bin/dotfiles/bashrc
+</pre>
+
+In .bashprofile
+<pre>
+  if [ -f ~/.bashrc ];
+  then
+      source ~/.bashrc
+  fi    
+</pre>
