@@ -21,6 +21,7 @@ alias ct='cd ~/Desktop/tests/'
 # Projects
 alias wk='work'
 alias cifras='work cifras/cifras'
+alias egenial='work egenial/cursos'
 alias atos='work atos/mac/Atos'
 alias labs='cd ~/Desktop/Labs'
 alias producer='work egenial/cursos/rails_basico/rails3/producer'
@@ -59,6 +60,7 @@ alias gdm='git diff master'
 alias gnp="git-notpushed"
 alias gpl='git pull'
 alias gps='git push'
+alias gph='git push heroku master'
 alias gs='git status'
 alias gru='git reset --hard HEAD'
 alias eg='mate .git/config'
@@ -76,6 +78,10 @@ alias mtd="mate ."
 alias r="rake"
 alias uninstallgems='gem list | cut -d" " -f1 | xargs gem uninstall -aIx'
 
+# RSpec
+alias rs="rspec"
+alias it="infinity_test"
+
 # Rails any version
 alias rp='touch tmp/restart.txt'
 alias tld='tail -f log/development.log'
@@ -88,10 +94,12 @@ function rr() {
 }
 
 # RVM
-alias rvmr3='rvm gemset use rails3beta'
-alias rvmree='rvm use ree'
 alias rvmsys='rvm use system'
 alias rvmdef='rvm use default'
+
+rvmrc() {
+  rvm use $1 --rvmrc --create
+}
 
 rvmd() {
   rvm use $1 --default
@@ -135,6 +143,9 @@ alias pas="sudo passenger-status"
 function markdown() {
   /Applications/TextMate.app/Contents/SharedSupport/Support/bin/Markdown.pl $1 > $1.html
 }
+
+# Bundler
+alias bx='bundle exec'
 
 # Misc
 alias tlsys="tail -f /var/log/system.log"

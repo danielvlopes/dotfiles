@@ -1,0 +1,44 @@
+puts 'Authenticating to Tumblr...'
+Tumblr.new(ENV[:email], ENV[:password]).authenticate.perform do |response|
+  if !response.success?
+    abort %Q(Oh no! Something went wrong. Tumblr said #{response.code}: "#{response.message}")
+  end
+end
+
+puts 'Generating Posts...'
+posts = items.collect do |item|
+  post = Tumblr::Post::Regular.new
+  post.title = 
+  post.body = 
+  post.slug = 
+  post.date = 
+  post.tags 
+  post.state = :draft if 
+  post
+end
+
+published_count = 0
+requests = posts.collect do |post|
+  request = post.write(email,password)
+  request.on_complete do |response|
+    if response.success?
+      published_count += 1
+    else
+      puts %Q(Error publishing post: "#{post.title}". Tumblr says #{response.code}: "#{response.message}")
+    end
+  end
+  request
+end
+puts "Publishing #{requests.count} posts..."
+
+if requests.count <= 60
+  Weary.batch(requests).perform
+else
+  # If there are too many requests, throttle appropriately.
+  # Make yourself a cup of tea.
+  requests.each {|req| req.perform; sleep 1 }
+end
+
+puts "Successfully published #{published_count} posts to Tumblr."
+
+exit

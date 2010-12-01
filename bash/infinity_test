@@ -1,0 +1,9 @@
+infinity_test do
+  use :rubies => %w(ree)
+  use :test_framework => :rspec
+  use :app_framework => :rails
+
+  notifications :growl do
+    show_images :mode => :rubies
+  end
+end
