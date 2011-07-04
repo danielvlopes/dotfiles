@@ -1,4 +1,4 @@
-. ~/etc/bash/env
-. ~/etc/bash/config
-. ~/etc/bash/aliases
-. ~/etc/bash/rvm
+. ~/bin/dotfiles/bash/env
+. ~/bin/dotfiles/bash/config
+. ~/bin/dotfiles/bash/aliases
+. ~/bin/dotfiles/bash/rvm
