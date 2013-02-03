@@ -1,3 +1,4 @@
 ssh/**
 bash/gitconfig
 bash/gemrc
+bin/sync_books

@@ -1,3 +1,7 @@
+export GREP_COLOR="4;33"
+export CLICOLOR="auto"
+
+# colors
 DULL=0
 BRIGHT=1
 
@@ -43,30 +47,4 @@ BRIGHT_VIOLET="\[$ESC[${BRIGHT};${FG_VIOLET}m\]"
 BRIGHT_CYAN="\[$ESC[${BRIGHT};${FG_CYAN}m\]"
 BRIGHT_WHITE="\[$ESC[${BRIGHT};${FG_WHITE}m\]"
 
-# works with rvm
-__ruby_version() {
-  which ruby | cut -d/ -f6
-}
-
-__gemset() {
-  echo $GEM_PATH | cut -d@ -f2 | cut -d: -f1
-}
-
-__git_branch() {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  echo "("${ref#refs/heads/}")"
-}
-
-
-####### history file
-# don't put duplicate lines in the history. See bash(1) for more options
-# don't overwrite GNU Midnight Commander's setting of `ignorespace'.
-export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
-export HISTCONTROL=ignoreboth
-# append to the history file, don't overwrite it
-shopt -s histappend
-PROMPT_COMMAND='history -a'
-export HISTSIZE=100000
-
-
-PS1="$BLUE\n\u:$GREEN\w $RED(\$(__gemset)) $VIOLET\$(__git_branch) ${NORMAL}\$ ${RESET}"
+PS1="$BRIGHT_BLACK\n\w$BRIGHT_CYAN\$(__git_ps1 ' [%s] ')\n$RESET\$ "

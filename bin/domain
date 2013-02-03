@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby -w
+# 
+# suffix = %w{ COM CO INFO NET ORG ME MOBI US BIZ MX CA WS AG COM.CO NET.CO NOM.CO COM.AG NET.AG IT FR ORG.AG AM ASIA AT BE BZ SE COM.BZ NET.BZ NET.BR COM.BR CC DE ES COM.ES NOM.ES ORG.ES EU FM GS IN CO.IN FIRM.IN GEN.IN IND.IN NET.IN ORG.IN JOBS JP MS COM.MX NL NU CO.NZ NET.NZ ORG.NZ TC TK TV TW COM.TW IDV.TW CO.UK ME.UK ORG.UK VG }
+# 
+# suffix.each do |s| 
+#   result = system "whois danielvlopes.#{s}"
+#   puts "#{s} is available" if result.grep('No match')
+# end
+

@@ -2,9 +2,9 @@
 
 # Utility
 alias reload='source ~/etc/bash/aliases'
-alias ea='mate -w ~/etc/bash/aliases && reload'	# Edit aliases
-alias ec='mate -w ~/etc/bash/config && reload' 	# Edit config
-alias ee='mate -w ~/etc/bash/env && reload'			# Edit env
+alias ea='mate ~/etc/bash/aliases && reload'  # Edit aliases
+alias ec='mate ~/etc/bash/config && reload'   # Edit config
+alias ee='mate ~/etc/bash/env && reload'      # Edit env
 
 function ps1 {
   PS1="\[$ESC[${DULL};${FG_GREEN}m\]\n\u:\[$ESC[${DULL};${FG_YELLOW}m\]$1 \$ \[$ESC[${DULL};${FG_WHITE};${BG_NULL}m\]"
@@ -20,22 +20,15 @@ alias ct='cd ~/Desktop/tests/'
 
 # Projects
 alias wk='work'
+alias labs='cd ~/Works/Code/labs'
 alias cifras='work cifras/cifras'
-alias egenial='work egenial/cursos'
-alias atos='work atos/mac/Atos'
-alias labs='cd ~/Desktop/Labs'
-alias producer='work egenial/cursos/rails_basico/rails3/producer'
+alias siteface='work siteface/siteface'
+alias objetiva='work objetiva/'
+alias blog='work objetiva/website/website'
+alias salus='work mco/odilon/salus'
 
 function work() {
-  if [ -d ~/Works/$* ]
-    then cd ~/Works/$*
-  else
-    cd ~/Works/archived/$*
-  fi
-}
-
-function egenial(){
-  work egenial/cursos/$*
+  cd ~/Works/Code/$*
 }
 
 # Processes
@@ -45,10 +38,13 @@ alias e='exit'
 alias k9="killall -9"
 
 # Git
+alias fix-conflicts='git diff --name-only --diff-filter=U | xargs $EDITOR'
+alias g='git'
 alias ungit="rm -rf .git"
 alias gcl='git clone'
+
 alias gl='git log'
-alias glp='git log --pretty=oneline'
+alias glp='git log --pretty=oneline --abbrev-commit'
 alias gb='git branch'
 alias gba='git branch -a'
 alias gc='git commit -v'
@@ -62,8 +58,9 @@ alias gpl='git pull'
 alias gps='git push'
 alias gph='git push heroku master'
 alias gs='git status'
+alias ?='git status'
 alias gru='git reset --hard HEAD'
-alias eg='mate .git/config'
+alias eg='vim .git/config'
 
 # Commit pending changes and quote all args as message
 function gg() {
@@ -77,6 +74,7 @@ alias mtd="mate ."
 # Ruby
 alias r="rake"
 alias uninstallgems='gem list | cut -d" " -f1 | xargs gem uninstall -aIx'
+alias rdoc="sf docs.local/ruby"
 
 # RSpec
 alias rs="rspec"
@@ -114,9 +112,6 @@ alias ss='./script/server'
 # Rails 3.0
 alias r='rails'
 
-# Memcache
-alias mc='memcached -vv'
-
 # TDD / BDD
 alias aa='autotest'
 alias aaf='autotest -f' # Don't run all at start
@@ -146,6 +141,7 @@ function markdown() {
 
 # Bundler
 alias bx='bundle exec'
+alias bs='bundle exec rspec'
 
 # Misc
 alias tlsys="tail -f /var/log/system.log"
@@ -161,6 +157,10 @@ function display_dotfiles(){
 function hide_dotfiles(){
   defaults write com.apple.finder AppleShowAllFiles FALSE
   killall Finder
+}
+
+function app(){
+  open /Applications/$1.app
 }
 
 function zipr() {

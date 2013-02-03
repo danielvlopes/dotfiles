@@ -1,0 +1,5 @@
+#!/bin/sh
+
+find . -name '*erb' | \
+xargs ruby -e 'ARGV.each { |i| puts "html2haml --trace -r #{i} #{i.sub(/erb$/,"haml")}"}' | \
+bash

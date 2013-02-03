@@ -1,29 +1,10 @@
-export EDITOR="mate -w"
+export GRAILS_HOME=$HOME/grails
+export JAVA_HOME=/Library/Java/Home
+
+export EDITOR="subl -w"
+export CC=gcc-4.2
 export LC_CTYPE=en_US.UTF-8
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:~/etc/bin:~/.rvm/scripts:${PATH}
+export PATH=$HOME/etc/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/mysql/bin:$PATH:$GRAILS_HOME/bin
 
-# preserve last path on new tabs
-cd () { 
-  builtin cd "$@";
-  local cwd;
-  cwd=$(pwd);
-  while :; do
-    if [[ -z "$cwd" ]] || [[ "$HOME" = "$cwd" ]] || [[ "/" = "$cwd" ]]; then
-      if [[ "$rvm_project_rvmrc_default" = 1 ]]; then
-        rvm default > /dev/null 2>&1;
-      fi;
-      break;
-    else
-      if [[ -f "$cwd/.rvmrc" ]]; then
-        source "$cwd/.rvmrc";
-        break;
-      else
-        cwd=$(dirname "$cwd");
-      fi;
-    fi;
-  done
 
-  echo $PWD > ~/.pwd;
-}
-
-if [[ -f ~/.pwd ]] ; then cd `cat ~/.pwd` ; fi
+eval "$(rbenv init -)"
