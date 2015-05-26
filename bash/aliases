@@ -1,5 +1,7 @@
 # Command Enhancements
 
+alias h2h='pbpaste | html2haml | pbcopy'
+
 # Utility
 alias reload='source ~/etc/bash/aliases'
 alias ea='mate ~/etc/bash/aliases && reload'  # Edit aliases
@@ -15,20 +17,12 @@ alias ls='ls -lahG'
 
 # Quicker cd
 alias c='cd'
-alias cgsys='cd /Library/Ruby/Gems/1.8/gems/'
-alias ct='cd ~/Desktop/tests/'
 
 # Projects
-alias wk='work'
-alias labs='cd ~/Works/Code/labs'
-alias cifras='work cifras/cifras'
-alias siteface='work siteface/siteface'
-alias objetiva='work objetiva/'
-alias blog='work objetiva/website/website'
-alias salus='work mco/odilon/salus'
+alias labs='cd /Users/daniel/Developer/labs'
 
-function work() {
-  cd ~/Works/Code/$*
+function pj() {
+  cd ~/Developer/projects/$*
 }
 
 # Processes
@@ -67,14 +61,8 @@ function gg() {
     git commit -v -a -m "$*"
 }
 
-# TextMate
-alias mt="mate"
-alias mtd="mate ."
-
 # Ruby
-alias r="rake"
-alias uninstallgems='gem list | cut -d" " -f1 | xargs gem uninstall -aIx'
-alias rdoc="sf docs.local/ruby"
+
 
 # RSpec
 alias rs="rspec"
@@ -91,36 +79,8 @@ function rr() {
   rake routes $1 > tmp/routes.rb && mate tmp/routes.rb
 }
 
-# RVM
-alias rvmsys='rvm use system'
-alias rvmdef='rvm use default'
-
-rvmrc() {
-  rvm use $1 --rvmrc --create
-}
-
-rvmd() {
-  rvm use $1 --default
-}
-
-# Rails 2.5
-alias sc='./script/console'
-alias sg='./script/generate'
-alias sp='./script/plugin'
-alias ss='./script/server'
-
 # Rails 3.0
 alias r='rails'
-
-# TDD / BDD
-alias aa='autotest'
-alias aaf='autotest -f' # Don't run all at start
-alias aas="./script/autospec"
-
-# RAILS
-function rails_app() {
-  rails new $1 -d mysql -TJm http://github.com/danielvlopes/base_app/raw/master/template.rb
-}
 
 # Apache2
 alias apt='tail -f /private/var/log/apache2/error_log /private/var/log/apache2/access_log'
@@ -131,14 +91,6 @@ alias aptl="tail -f /var/log/apache2/error_log /var/log/apache2/access_log"
 alias apmate="mate /etc/apache2"
 alias apcd="cd /etc/apache2"
 
-alias pams="sudo passenger-memory-stats"
-alias pas="sudo passenger-status"
-
-# Text Processing
-function markdown() {
-  /Applications/TextMate.app/Contents/SharedSupport/Support/bin/Markdown.pl $1 > $1.html
-}
-
 # Bundler
 alias bx='bundle exec'
 alias bs='bundle exec rspec'
@@ -147,7 +99,6 @@ alias bs='bundle exec rspec'
 alias tlsys="tail -f /var/log/system.log"
 alias rmasl="sudo rm -rf /private/var/log/asl/*"
 alias o='open . &'
-alias ff='open -a Firefox'
 
 function display_dotfiles(){
   defaults write com.apple.finder AppleShowAllFiles TRUE
@@ -161,14 +112,6 @@ function hide_dotfiles(){
 
 function app(){
   open /Applications/$1.app
-}
-
-function zipr() {
-  zip -r $1.zip $1
-}
-
-function sf(){
-  open -a Safari http://$1
 }
 
 function tarc(){

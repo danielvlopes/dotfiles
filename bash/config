@@ -1,6 +1,3 @@
-export GREP_COLOR="4;33"
-export CLICOLOR="auto"
-
 # colors
 DULL=0
 BRIGHT=1
@@ -47,4 +44,5 @@ BRIGHT_VIOLET="\[$ESC[${BRIGHT};${FG_VIOLET}m\]"
 BRIGHT_CYAN="\[$ESC[${BRIGHT};${FG_CYAN}m\]"
 BRIGHT_WHITE="\[$ESC[${BRIGHT};${FG_WHITE}m\]"
 
-PS1="$BRIGHT_BLACK\n\w$BRIGHT_CYAN\$(__git_ps1 ' [%s] ')\n$RESET\$ "
+GIT_PS1_SHOWDIRTYSTATE=true
+PS1="$BRIGHT_YELLOW\n\w$BRIGHT_CYAN\$(__git_ps1 ' [%s]')\n$RESET\$ "

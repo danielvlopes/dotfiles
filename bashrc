@@ -1,4 +1,4 @@
-. ~/etc/bash/env
-. ~/etc/bash/config
-. ~/etc/bash/aliases
-. ~/etc/bash/git-completion
+. ~/Developer/etc/bash/env
+. ~/Developer/etc/bash/config
+. ~/Developer/etc/bash/aliases
+. ~/Developer/etc/bash/git-completion
