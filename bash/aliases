@@ -94,6 +94,7 @@ alias apcd="cd /etc/apache2"
 # Bundler
 alias bx='bundle exec'
 alias bs='bundle exec rspec'
+alias bsff='bundle exec rspec --fail-fast'
 
 # Misc
 alias tlsys="tail -f /var/log/system.log"

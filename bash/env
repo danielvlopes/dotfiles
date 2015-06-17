@@ -5,7 +5,11 @@ export LC_CTYPE=en_US.UTF-8
 export RBENV_ROOT=/usr/local/var/rbenv
 export HISTSIZE=15000
 
-export PATH=/usr/local/heroku/bin:/Applications/Postgres93.app/Contents/MacOS/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/mysql/bin:$HOME/Developer/etc/bin:/usr/local/heroku/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:$HOME/:$PATH
+export PATH=/usr/local/heroku/bin:/Applications/Postgres93.app/Contents/MacOS/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/mysql/bin:$HOME/Developer/etc/bin:/usr/local/heroku/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/Cellar/phantomjs182/1.8.2/bin/:/Applications/Postgres.app/Contents/Versions/9.4/bin:$HOME/:$PATH
+
+export ONBOARDING_USERNAME=test
+export ONBOARDING_PASSWORD=test
 
 # To enable shims and autocompletion:
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
