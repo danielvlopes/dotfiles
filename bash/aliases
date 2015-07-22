@@ -36,7 +36,7 @@ alias fix-conflicts='git diff --name-only --diff-filter=U | xargs $EDITOR'
 alias g='git'
 alias ungit="rm -rf .git"
 alias gcl='git clone'
-
+alias glg='git log --graph --oneline --decorate --date=relative --all'
 alias gl='git log'
 alias glp='git log --pretty=oneline --abbrev-commit'
 alias gb='git branch'
