@@ -2,6 +2,12 @@
 
 alias h2h='pbpaste | html2haml | pbcopy'
 
+# IFTTT
+
+alias ir="dev run ifeweb bash"
+alias irc="dev run ifeweb bash rails c"
+alias irs="dev run ifeweb rspec"
+
 # Utility
 alias reload='source ~/etc/bash/aliases'
 alias ea='mate ~/etc/bash/aliases && reload'  # Edit aliases

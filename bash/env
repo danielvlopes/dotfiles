@@ -1,3 +1,4 @@
+export EDITOR='/usr/local/bin/atom --wait'
 export GRAILS_HOME=$HOME/grails
 export JAVA_HOME=/Library/Java/Home
 
@@ -12,4 +13,3 @@ export ONBOARDING_PASSWORD=test
 
 # To enable shims and autocompletion:
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
