@@ -3,3 +3,5 @@ bash/gitconfig
 bash/gemrc
 bin/sync_books
 secrets/**
+mesos_ssh_tool.rb
+.DS_Store
