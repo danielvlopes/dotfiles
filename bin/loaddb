@@ -1,7 +1,0 @@
-#!/bin/sh
-if [ $# -eq 0 ] 
-then
-  echo "usage: loaddb 'database' 'file.sql'"
-else
-	mysql -u root -p $1 < $2
-fi

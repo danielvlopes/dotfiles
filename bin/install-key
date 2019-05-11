@@ -1,8 +1,0 @@
-#!/bin/sh
-if [ $# -eq 0 ] 
-then
-  echo "usage: install-key 'user@host.com'"
-else
-  ssh-copy-id -i ~/.ssh/id_rsa.pub $1
-fi
-

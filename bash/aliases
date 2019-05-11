@@ -2,11 +2,10 @@
 
 alias h2h='pbpaste | html2haml | pbcopy'
 
-# IFTTT
+# KYC
 
-alias ir="dev run ifeweb bash"
-alias irc="dev run ifeweb bash rails c"
-alias irs="dev run ifeweb rspec"
+alias kyc="cd ~/Development/projects/kyc"
+alias honcho="cd ~/Development/projects/kyc/honcho"
 
 # Utility
 alias reload='source ~/etc/bash/aliases'
@@ -25,10 +24,10 @@ alias ls='ls -lahG'
 alias c='cd'
 
 # Projects
-alias labs='cd /Users/daniel/Developer/labs'
+alias labs='cd /Users/daniel/Development/labs'
 
 function pj() {
-  cd ~/Developer/projects/$*
+  cd ~/Development/projects/$*
 }
 
 # Processes
@@ -36,6 +35,9 @@ alias tu='top -o cpu' # cpu
 alias tm='top -o vsize' # memory
 alias e='exit'
 alias k9="killall -9"
+
+# Node
+alias less='less-watch-compiler'
 
 # Git
 alias fix-conflicts='git diff --name-only --diff-filter=U | xargs $EDITOR'
